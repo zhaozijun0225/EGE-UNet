@@ -358,7 +358,7 @@ class myRandomRotation:
 
 class myNormalize:
     def __init__(self, data_name, train=True):
-        if data_name == 'isic18':
+        if data_name == 'isic18' or data_name=='PLmask':
             if train:
                 self.mean = 157.561
                 self.std = 26.706

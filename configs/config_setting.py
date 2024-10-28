@@ -17,11 +17,13 @@ class setting_config:
         'gt_ds': True,
     }
 
-    datasets = 'isic17' 
+    datasets = 'PLmask'
     if datasets == 'isic18':
         data_path = './data/isic2018/'
     elif datasets == 'isic17':
         data_path = './data/isic2017/'
+    elif datasets == 'PLmask':
+        data_path='./data/PL/dataset/'
     else:
         raise Exception('datasets in not right!')
 
@@ -29,18 +31,18 @@ class setting_config:
 
     pretrained_path = './pre_trained/'
     num_classes = 1
-    input_size_h = 256
-    input_size_w = 256
+    input_size_h = 416
+    input_size_w = 416
     input_channels = 3
     distributed = False
     local_rank = -1
-    num_workers = 0
-    seed = 42
+    num_workers = 16
+    seed = 123
     world_size = None
     rank = None
     amp = False
-    gpu_id = '0'
-    batch_size = 8
+    gpu_id = '2'
+    batch_size = 96
     epochs = 300
 
     work_dir = 'results/' + network + '_' + datasets + '_' + datetime.now().strftime('%A_%d_%B_%Y_%Hh_%Mm_%Ss') + '/'
